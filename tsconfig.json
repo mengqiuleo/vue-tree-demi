@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxFactory": "h",
+    "jsxFragmentFactory": "Fragment",
+  },
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.web.json" },
+    { "path": "./tsconfig.node.json" }
+  ],
+  "exclude": [
+    "./src/tree.tsx",
+    "./vue3-playground/App.vue",
+    "./vue2.7-playground/App.vue",
+    "./vue2-playground/App.vue"
+  ]
+}
