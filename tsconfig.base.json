@@ -20,7 +20,8 @@
     },
     "exclude": [
       "node_modules",
-      "dist"
+      "dist",
+      "./vue3-playground/App.vue"
     ]
 }
   

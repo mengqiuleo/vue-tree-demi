@@ -1,24 +1,22 @@
 <template>
   <div>
-    <div ma4 class="template-component">Template Component</div>
     <div>test</div>
-    <div v-for="treeNode in data">{{ treeNode.label }}</div>
+    <div v-for="treeNode in treeData">{{ treeNode.label }}</div>
   </div>
 </template>
 
 <script lang="ts">
-import { templateComponentProps } from "./props";
 import { defineComponent, toRefs } from 'vue-demi';
-import { TreeProps, treeProps } from './tree/tree-type';
+import { TreeProps, treeProps } from './tree-type';
 
 //@ts-ignore
 export default defineComponent({
   name: "vTree",
   props: treeProps,
   setup(props: TreeProps) {
-    const { data } = toRefs(props)
+    const { treeData } = toRefs(props)
     return {
-      data
+      treeData
     }
   },
 });
