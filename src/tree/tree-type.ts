@@ -23,7 +23,7 @@ export interface IInnerTreeNode extends ITreeNode { //*扁平的数据结构
 
 export const treeProps = {
   treeData: {
-    type: Array as PropType<Array<IInnerTreeNode>>,
+    type: Array as PropType<Array<ITreeNode>>,
     required: true
   },
   // 是否显示 checkbox

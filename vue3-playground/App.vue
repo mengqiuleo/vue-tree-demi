@@ -1,7 +1,7 @@
 <template>
   <div>
     <span>vue版本: {{ version }}</span>
-    <v-tree :tree-data="data" />
+    <v-tree :tree-data="data" checkable />
     <TemplateSFC />
   </div>
 </template>
@@ -17,44 +17,87 @@ export default defineComponent({
     const data = [
       {
         label: 'docs',
-        id: 'node-1',
-        level: 1
+        id: 'docs',
+        checked: true
       },
       {
         label: 'packages',
-        id: 'node-2',
+        id: 'packages',
         expanded: true,
-        level: 1
-      },
-      {
-        label: 'vite',
-        id: 'node-2-1',
-        parentId: 'node-2',
-        expanded: true,
-        level: 2
-      },
-      {
-        label: 'README.md',
-        id: 'node-2-1-1',
-        parentId: 'node-2-1',
-        isLeaf: true,
-        level: 3
+        children: [
+          {
+            label: 'plugin-vue',
+            id: 'plugin-vue'
+          },
+          {
+            label: 'vite',
+            id: 'vite',
+            expanded: true,
+            children: [
+              {
+                label: 'src',
+                id: 'src',
+                checked: true
+              },
+              {
+                label: 'README.md',
+                id: 'README.md',
+                children: [
+                  {
+                    label: 'index.md',
+                    id: 'index.md',
+                    checked: true
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            label: 'vite1',
+            id: 'vite1',
+            expanded: true,
+            children: [
+              {
+                label: 'src1',
+                id: 'src1'
+              },
+              {
+                label: 'README.md1',
+                id: 'README.md1',
+                checked: true,
+                children: [
+                  {
+                    label: 'index.md1',
+                    id: 'index.md1'
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       {
         label: 'scripts',
-        id: 'node-3',
-        level: 1
+        id: 'scripts',
+        children: [
+          {
+            label: 'release.ts',
+            id: 'release.ts'
+          },
+          {
+            label: 'verifyCommit.ts',
+            id: 'verifyCommit.ts'
+          }
+        ]
       },
       {
         label: 'pnpm-workspace.yaml',
-        id: 'node-4',
-        level: 1,
-        isLeaf: true
+        id: 'pnpm-workspace.yaml'
       }
     ]
-    console.log('vue3-playground', version)
     const vueVersion = ref(isVue2 ? "Vue2" : "Vue3");
 
+    //@ts-ignore
     console.warn(`Vue env: Vue3:${isVue3} -- Vue2: ${isVue2}`);
 
     return {
@@ -67,12 +110,4 @@ export default defineComponent({
 </script>
 
 <style>
-body > div {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
