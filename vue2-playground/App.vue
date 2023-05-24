@@ -1,7 +1,8 @@
 <template>
   <div>
     <span>{{ version }}</span>
-    <v-tree :tree-data="treeData" />
+    <v-tree :tree-data="tData" />
+    <TemplateSFC />
   </div>
 </template>
 
@@ -11,7 +12,7 @@ import { defineComponent, ref, isVue3, isVue2, version } from "vue-demi";
 export default defineComponent({
   name: "App",
   setup() {
-    const treeData = [
+    const tData = [
       {
         label: 'docs',
         id: 'node-1',
@@ -57,7 +58,7 @@ export default defineComponent({
 
     return {
       Vue2Version,
-      treeData,
+      tData,
       version
     };
   },

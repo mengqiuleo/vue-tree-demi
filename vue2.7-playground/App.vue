@@ -2,6 +2,7 @@
   <div>
     <span>{{ version }}</span>
     <v-tree :tree-data="treeData" />
+    <TemplateSFC />
   </div>
 </template>
 

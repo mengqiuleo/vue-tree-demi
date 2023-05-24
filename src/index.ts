@@ -1,12 +1,14 @@
 import TreeSFC from './tree/tree.vue'
-// import TreeSFC from './tree/tree'
-import 'uno.css'
+import TemplateSFC from './TemplateComponent.vue'
+// import 'uno.css'
+import 'virtual:uno.css'
+
 
 const TemplateComponent = {
   install(app: any, options: any) {
     console.log(options)
     app.component(TreeSFC.name, TreeSFC)
-    // app.component(TemplateSFC.name, TemplateSFC)
+    app.component(TemplateSFC.name, TemplateSFC)
   }
 }
 

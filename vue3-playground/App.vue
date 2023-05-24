@@ -2,6 +2,7 @@
   <div>
     <span>vue版本: {{ version }}</span>
     <v-tree :tree-data="data" />
+    <TemplateSFC />
   </div>
 </template>
 
